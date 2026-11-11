@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17112b">
+  <meta name="description" content="Meet Moonie, the cheeky space cat behind MOONMEOW ($MMOW) on Solana. Powered by naps, tuna, and pure chaos.">
+  <title>MOONMEOW — Too sleepy for Earth. Too chaotic for the Moon.</title>
+  <link rel="icon" href="moonmeow-icon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --ink:#21183b; --muted:#766b91; --purple:#7657d8; --violet:#a78bfa;
+      --pink:#ff9acb; --cream:#fffaf2; --lav:#f1eaff; --line:#e8defa;
+      --night:#17112b; --mint:#a8f0d0;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,-apple-system,sans-serif;line-height:1.55}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:20px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:1000;letter-spacing:.04em}
+    .brand img{width:43px;height:43px}
+    .navlinks{display:flex;align-items:center;gap:24px;font-size:.93rem;font-weight:800;color:#625778}
+    .navlinks a:hover{color:var(--purple)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:13px 20px;background:var(--purple);color:white;font-weight:900;box-shadow:0 7px 0 #5138a8;transition:.15s transform,.15s box-shadow;cursor:pointer}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 9px 0 #5138a8}
+    .btn.secondary{background:white;color:var(--ink);border:2px solid var(--line);box-shadow:0 5px 0 var(--line)}
+    .hero{position:relative;overflow:hidden;background:radial-gradient(circle at 80% 20%,#503c86 0,#2a2050 36%,#17112b 78%);color:white;border-radius:34px;padding:clamp(34px,7vw,82px);display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:24px;min-height:490px}
+    .hero:before,.hero:after{content:"";position:absolute;border:1px solid #ffffff25;border-radius:50%;width:360px;height:130px;transform:rotate(-24deg);right:3%;top:20%}
+    .hero:after{width:440px;height:170px;right:-2%;top:17%;transform:rotate(24deg)}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 13px;border:1px solid #ffffff35;border-radius:999px;background:#ffffff12;color:#e5d9ff;font-size:.82rem;font-weight:900}
+    h1{font-size:clamp(2.8rem,6vw,5.5rem);line-height:.98;letter-spacing:-.055em;margin:20px 0 14px}
+    h1 span{color:#ffc4e1}
+    .hero p{font-size:1.1rem;color:#e5def7;max-width:540px}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+    .hero .secondary{background:#ffffff12;border-color:#ffffff45;color:white;box-shadow:0 5px 0 #ffffff18}
+    .cat-stage{position:relative;z-index:1;display:grid;place-items:center;min-height:320px}
+    .moon{position:absolute;width:min(310px,75vw);aspect-ratio:1;border-radius:50%;background:linear-gradient(145deg,#ffe7a6,#eabf65);box-shadow:0 0 65px #ffdc8c55}
+    .moon:before,.moon:after{content:"";position:absolute;border-radius:50%;background:#d9a95055}
+    .moon:before{width:42px;height:42px;top:22%;left:24%}.moon:after{width:24px;height:24px;right:22%;bottom:24%}
+    .cat{position:relative;font-size:clamp(9rem,20vw,14rem);filter:drop-shadow(0 18px 12px #08051b70);transform:translateY(-5px);z-index:2}
+    .crown{position:absolute;z-index:3;font-size:3.3rem;top:4%;right:19%;transform:rotate(12deg)}
+    .orbit{position:absolute;font-size:2rem;z-index:3}
+    .orbit.one{top:10%;left:7%}.orbit.two{bottom:12%;right:3%}.orbit.three{bottom:5%;left:12%}
+    .ticker{display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border-radius:14px;background:#ffffff12;border:1px solid #ffffff2b;margin-top:20px;font-weight:900}
+    section{padding:78px 0}
+    .section-head{text-align:center;max-width:680px;margin:0 auto 36px}
+    .kicker{color:var(--purple);font-weight:1000;text-transform:uppercase;letter-spacing:.14em;font-size:.76rem}
+    h2{font-size:clamp(2rem,4vw,3.1rem);line-height:1.05;letter-spacing:-.04em;margin:10px 0}
+    .section-head p{color:var(--muted);margin:12px 0 0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:white;border:1px solid var(--line);border-radius:24px;padding:25px;box-shadow:0 8px 25px #4b32800a}
+    .card .emoji{font-size:2.2rem}.card h3{margin:10px 0 6px}.card p{margin:0;color:var(--muted)}
+    .about{display:grid;grid-template-columns:.85fr 1.15fr;gap:32px;align-items:center}
+    .about-art{background:var(--lav);border-radius:30px;min-height:300px;display:grid;place-items:center;position:relative;overflow:hidden}
+    .about-art .bigcat{font-size:10rem;z-index:1}.about-art .star{position:absolute;font-size:2rem}
+    .about-art .s1{top:18%;left:15%}.about-art .s2{right:15%;top:25%}.about-art .s3{bottom:14%;left:23%}
+    .about-copy p{color:var(--muted)}
+    .token-panel{background:var(--night);color:white;border-radius:30px;padding:clamp(25px,5vw,48px)}
+    .token-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:25px}
+    .token-item{padding:18px;border-radius:17px;background:#ffffff0d;border:1px solid #ffffff18}
+    .token-item small{display:block;color:#bfb3df;margin-bottom:5px}.token-item strong{font-size:1.1rem;overflow-wrap:anywhere}
+    .address{font-size:.86rem;word-break:break-all}
+    .copyrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+    .copy{border:1px solid #ffffff35;background:#ffffff12;color:white;border-radius:10px;padding:8px 12px;font-weight:800;cursor:pointer}
+    .notice{font-size:.85rem;color:#cfc5e5;margin-top:17px}
+    .community{background:linear-gradient(135deg,#f2eaff,#fff0f7);border-radius:30px;padding:clamp(28px,5vw,54px);text-align:center}
+    .community p{color:var(--muted);max-width:600px;margin:12px auto 24px}
+    .community-actions{display:flex;justify-content:center;gap:13px;flex-wrap:wrap}
+    footer{background:var(--night);color:#e8e0f8;padding:34px 0;margin-top:70px}
+    .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+    footer p{color:#b8adcf;font-size:.85rem;margin:6px 0}
+    .disclaimer{font-size:.78rem;color:#b8adcf;max-width:650px}
+    @media(max-width:800px){.hero{grid-template-columns:1fr;text-align:center}.hero p{margin-left:auto;margin-right:auto}.hero-actions{justify-content:center}.cat-stage{min-height:270px}.cards{grid-template-columns:1fr}.about{grid-template-columns:1fr}.navlinks{display:none}}
+    @media(max-width:520px){.wrap{width:min(100% - 26px,1120px)}.hero{border-radius:24px;padding:34px 20px}.token-grid{grid-template-columns:1fr}section{padding:58px 0}.cat-stage{min-height:230px}.moon{width:220px}}
+  </style>
+</head>
+<body>
+  <header class="wrap nav">
+    <a class="brand" href="#"><img src="moonmeow-icon.svg" alt=""><span>MOONMEOW</span></a>
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#token">Token</a><a href="#community">Community</a>
+    </nav>
+    <a class="btn" href="https://pump.fun/coin/bUpVu5JfoadARv1wSDn4q9dg3FWp6GHwsrQJpfWpump" target="_blank" rel="noopener">View on Pump.fun ↗</a>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <span class="eyebrow">🌙 A LITTLE CAT. A BIG MOON.</span>
+        <h1 id="hero-title">TO THE MOON,<br><span>MEOW!</span></h1>
+        <p>Meet Moonie, the cheeky little space cat who accidentally conquered the Moon. Powered by naps, tuna, and pure chaos.</p>
+        <div class="hero-actions">
+          <a class="btn" href="https://pump.fun/coin/bUpVu5JfoadARv1wSDn4q9dg3FWp6GHwsrQJpfWpump" target="_blank" rel="noopener">Explore $MMOW ↗</a>
+          <a class="btn secondary" href="#community">Meet the community</a>
+        </div>
+        <div class="ticker">🐾 SOLANA MEME TOKEN <span>·</span> $MMOW</div>
+      </div>
+      <div class="cat-stage" aria-label="Moonie, a cheeky space cat">
+        <div class="moon"></div><span class="orbit one">✦</span><span class="orbit two">⭐</span><span class="orbit three">🐟</span>
+        <span class="crown">🌙</span><div class="cat">😼</div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about">
+        <div class="about-art"><span class="star s1">✨</span><span class="star s2">🐟</span><span class="star s3">⭐</span><div class="bigcat">🐱</div></div>
+        <div class="about-copy">
+          <span class="kicker">Meet the mascot</span>
+          <h2>Moonie has a moon-sized attitude.</h2>
+          <p>Moonie is a smug little space cat with one tiny problem: the Moon is now his kingdom. He collects tuna, avoids responsibilities, and believes every great adventure should include a nap.</p>
+          <p>MOONMEOW is a community-led meme token created for fun. The story, art, and community are the heart of the project—not a promise of financial returns.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="kicker">The Moonie mindset</span>
+        <h2>Small paws. Maximum chaos.</h2>
+        <p>Three rules from the unofficial ruler of the Moon.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><div class="emoji">😴</div><h3>Nap first</h3><p>Big dreams are important. So is a very serious nap schedule.</p></article>
+        <article class="card"><div class="emoji">🐟</div><h3>Tuna-powered</h3><p>Moonie runs on snacks, curiosity, and questionable decisions.</p></article>
+        <article class="card"><div class="emoji">🌙</div><h3>Moon together</h3><p>A playful community is better when everyone gets to join the fun.</p></article>
+      </div>
+    </section>
+
+    <section id="token">
+      <div class="token-panel">
+        <span class="kicker" style="color:#c4adff">Token details</span>
+        <h2>Meet $MMOW</h2>
+        <p style="color:#cfc5e5">The on-chain details currently recorded for MOONMEOW.</p>
+        <div class="token-grid">
+          <div class="token-item"><small>Token name</small><strong>MOONMEOW</strong></div>
+          <div class="token-item"><small>Ticker</small><strong>$MMOW</strong></div>
+          <div class="token-item"><small>Network</small><strong>Solana</strong></div>
+          <div class="token-item"><small>Supply shown on Solscan</small><strong>1,000,000,000</strong></div>
+          <div class="token-item"><small>Decimals shown on Solscan</small><strong>6</strong></div>
+          <div class="token-item"><small>Contract address</small><strong class="address">bUpVu5JfoadARv1wSDn4q9dg3FWp6GHwsrQJpfWpump</strong>
+            <div class="copyrow"><button class="copy" id="copy-ca" type="button">Copy address</button><a class="copy" href="https://solscan.io/token/bUpVu5JfoadARv1wSDn4q9dg3FWp6GHwsrQJpfWpump" target="_blank" rel="noopener">View on Solscan ↗</a></div>
+          </div>
+        </div>
+        <p class="notice">Token data is informational and may change or be displayed differently across platforms. Always verify the contract address before interacting with a token.</p>
+      </div>
+    </section>
+
+    <section id="community">
+      <div class="community">
+        <span class="kicker">Find your people</span>
+        <h2>Join Moonie's little universe.</h2>
+        <p>Follow the project updates on X and join the Telegram community. Be kind, stay curious, and beware of impersonators.</p>
+        <div class="community-actions">
+          <a class="btn" href="https://x.com/yndyxv" target="_blank" rel="noopener">Follow on X ↗</a>
+          <!-- Replace the placeholder below with the public Telegram invite URL before publishing. -->
+          <a class="btn secondary" href="https://t.me/+czCcwHo93g4xOTM1" target="_blank" rel="noopener" id="telegram-link">Join Telegram ↗</a>
+          <a class="btn secondary" href="https://pump.fun/coin/bUpVu5JfoadARv1wSDn4q9dg3FWp6GHwsrQJpfWpump" target="_blank" rel="noopener">Pump.fun ↗</a>
+        </div>
+        <p id="telegram-note" style="font-size:.8rem;margin-bottom:0">Telegram link needs to be added by the site owner before publishing.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div><a class="brand" href="#"><img src="moonmeow-icon.svg" alt=""><span>MOONMEOW</span></a><p>Too sleepy for Earth. Too chaotic for the Moon.</p></div>
+      <p class="disclaimer">MOONMEOW is a meme token for entertainment and community purposes. It has no guaranteed utility, value, or return. Crypto assets are volatile and you may lose your entire purchase. This website is informational and is not financial advice.</p>
+      <p>© <span id="year"></span> MOONMEOW Community</p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('copy-ca').addEventListener('click', async function () {
+      const address = 'bUpVu5JfoadARv1wSDn4q9dg3FWp6GHwsrQJpfWpump';
+      try { await navigator.clipboard.writeText(address); this.textContent = 'Copied! ✓'; }
+      catch (e) { this.textContent = 'Copy unavailable'; }
+    });
+    const tg = document.getElementById('telegram-link');
+    if (tg.getAttribute('href') === 'TELEGRAM_INVITE_URL') {
+      tg.addEventListener('click', function(e) { e.preventDefault(); alert('The site owner needs to add the public Telegram invite link first.'); });
+    } else {
+      document.getElementById('telegram-note').hidden = true;
+    }
+  </script>
+</body>
+</html>
